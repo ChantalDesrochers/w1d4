@@ -12,3 +12,20 @@ function actionWhenFound(index) {
 }
 
 findWaldo([“Alice”, “Bob”, “Waldo”, “Winston”], actionWhenFound);
+
+
+///// refactor below:
+
+function findWaldo(characters,found) {
+ characters.forEach(function(character,index){
+   if (character === “Waldo”) {
+     found(index);   // execute callback
+
+   }
+ });
+}
+function actionWhenFound(index) {
+ console.log(“Found waldo at: ” + index + ‘!’);
+}
+
+findWaldo([“Alice”, “Bob”, “Waldo”, “Winston”], actionWhenFound);
